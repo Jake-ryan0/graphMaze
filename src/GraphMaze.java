@@ -1,3 +1,4 @@
+
 import edu.princeton.cs.algs4.*;
 
 //TODO figure out SymbolGraph
@@ -5,7 +6,7 @@ import edu.princeton.cs.algs4.*;
 //TODO figure out how to draw points associated with Vertices
 
 /**
-    GraphMaze represents a graph, and the necessary tools to solve a maze
+ GraphMaze represents a graph, and the necessary tools to solve a maze
  */
 public class GraphMaze {
     private Graph graph;
@@ -57,8 +58,8 @@ public class GraphMaze {
      * @param size the size of the maze.  must be a perfect square currently (e.g. 9, 25, 100)
      */
     public GraphMaze(int size){
-       graph = new Graph(size);
-       generateEdges();
+        graph = new Graph(size);
+        generateEdges();
     }
 
     /**
@@ -76,7 +77,7 @@ public class GraphMaze {
      * @return the queue containing all points along the path to end
      */
     public Queue<Iterable>getPath(){
-       return getPath(start, end);
+        return getPath(start, end);
     }
 
     private Queue<Iterable>getPath(Integer current, Integer next) {
