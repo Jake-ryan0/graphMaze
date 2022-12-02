@@ -1,6 +1,7 @@
 
 import edu.princeton.cs.algs4.*;
 
+
 //TODO figure out SymbolGraph
 //TODO generate txt file for SymbolGraph
 //TODO figure out how to draw points associated with Vertices
@@ -14,6 +15,7 @@ public class GraphMaze {
     private int end;
     private static Queue<Integer> detours = new Queue<>();
     private static Queue<Iterable> totalPath = new Queue<>();
+
 
 
     /**
@@ -89,6 +91,7 @@ public class GraphMaze {
             int temp = detours.dequeue();
             totalPath.enqueue(bfs.pathTo(temp));
             return getPath(temp, next);
+
         }
         return totalPath;
     }

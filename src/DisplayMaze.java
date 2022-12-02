@@ -1,12 +1,13 @@
+
 import edu.princeton.cs.algs4.Graph;
 import edu.princeton.cs.algs4.StdDraw;
+
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import java.awt.*;
 
 public class DisplayMaze {
-
-    private static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
     public static void drawGraph(Graph graph) throws InterruptedException {
         StdDraw.setPenRadius();
@@ -24,8 +25,11 @@ public class DisplayMaze {
         while(!done){
             if (StdDraw.mousePressed()){
                 StdDraw.setPenColor(Color.RED);
-                StdDraw.filledSquare(StdDraw.mouseX()%100, StdDraw.mouseY()%100, 0.05);
-                TimeUnit.MILLISECONDS.sleep(500);
+                for (int i = 0; i < Square.getSquares().size(); i++){
+                    if (Square.getSquares().get(i).contains(StdDraw.mouseX(),StdDraw.mouseY()))
+                        Square.getSquares().get(i).drawFilledSquare();
+                }
+                // TimeUnit.MILLISECONDS.sleep(500);
             }
         }
 
@@ -41,7 +45,7 @@ public class DisplayMaze {
         int scale = (int) Math.sqrt(1.0 * graph.V());
         for (double row = 0; row < scale; row++){
             for (double col = 0; col < scale; col++){
-                new Square(row,col,1/scale*2);
+                new Square(row/10+0.05,col/10+0.05,0.05);
             }
         }
     }
