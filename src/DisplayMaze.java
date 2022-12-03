@@ -23,7 +23,7 @@ public class DisplayMaze {
         drawGrid(graph);
         boolean done = false;
         while(!done){
-            if (StdDraw.mousePressed()){
+            if (StdDraw.isMousePressed()){
                 StdDraw.setPenColor(Color.RED);
                 for (int i = 0; i < Square.getSquares().size(); i++){
                     if (Square.getSquares().get(i).contains(StdDraw.mouseX(),StdDraw.mouseY()))
