@@ -10,17 +10,16 @@ import java.awt.*;
 public class DisplayMaze {
 
     public static void drawGraph(Graph graph) throws InterruptedException {
-        StdDraw.setPenRadius();
+        StdDraw.setCanvasSize(1200,1200);//TODO moved this to here, setting scale now works
         StdDraw.setXscale(0, Math.sqrt(graph.V()));
         StdDraw.setYscale(0, Math.sqrt(graph.V()));
-
         // to speed up performance, defer displaying points
-        //    StdDraw.enableDoubleBuffering();
+        StdDraw.enableDoubleBuffering(); // must call show()
 
-        StdDraw.setCanvasSize(700,700);
 
         //  StdDraw.filledSquare(0,0,0.1);
         drawGrid(graph);
+        StdDraw.show();
         boolean done = false;
         while(!done){
             if (StdDraw.isMousePressed()){
@@ -28,6 +27,7 @@ public class DisplayMaze {
                 for (int i = 0; i < Square.getSquares().size(); i++){
                     if (Square.getSquares().get(i).contains(StdDraw.mouseX(),StdDraw.mouseY()))
                         Square.getSquares().get(i).drawFilledSquare();
+                    StdDraw.show();
                 }
                 // TimeUnit.MILLISECONDS.sleep(500);
             }
@@ -45,12 +45,13 @@ public class DisplayMaze {
         int scale = (int) Math.sqrt(1.0 * graph.V());
         for (double row = 0; row < scale; row++){
             for (double col = 0; col < scale; col++){
-                new Square(row/10+0.05,col/10+0.05,0.05);
+//                new Square(row/scale+0.05,col/scale+0.05,0.05);
+                StdDraw.setPenRadius(0.005);
+                new Square(row + 0.5, col + 0.5, 0.5);
+//                StdDraw.line(0, 0,scale,scale);// TODO this works, and draw a line from 0,0, to 3,3
+
             }
+
         }
     }
-
-    // display all of the points now
-//        StdDraw.show();
-
 }
