@@ -36,6 +36,10 @@ public class GraphMaze {
         this.start = start;
     }
 
+    public void addDetour(int detour){
+        detours.enqueue(detour);
+    }
+
     /**
      * Sets end.
      *

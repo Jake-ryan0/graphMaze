@@ -8,7 +8,7 @@ public class Main {
     private static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) throws InterruptedException {
-        int size = 10_000; //test
+        int size = 100; //test
 
         GraphMaze gm = new GraphMaze(size);
 //        System.out.println(gm.getGraph().toString());
@@ -26,7 +26,7 @@ public class Main {
 //
 //        System.out.println(gm.getPath());
 
-        DisplayMaze.drawGraph(gm.getGraph());
+        DisplayMaze.drawGraph(gm);
 
 
 
