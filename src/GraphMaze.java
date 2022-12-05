@@ -16,7 +16,7 @@ public class GraphMaze {
     private int start;
     private int end;
     private static Queue<Integer> detours = new Queue<>();
-    private static Queue<Iterable> totalPath = new Queue<>();
+    private static Queue<Integer> totalPath = new Queue<>();
 
 
 
@@ -84,18 +84,26 @@ public class GraphMaze {
      *
      * @return the queue containing all points along the path to end
      */
-    public Queue<Iterable>getPath(){
+    public Iterable<Integer>getPath(){
         return getPath(start, end);
     }
 
-    private Queue<Iterable>getPath(Integer current, Integer next) {
+    private Iterable<Integer>getPath(Integer current, Integer next) {
         BreadthFirstPaths bfs = new BreadthFirstPaths(graph, current);
         if (detours.isEmpty()){     // base case
-            totalPath.enqueue(bfs.pathTo(next));
+            Iterable<Integer> currentQueue = bfs.pathTo(next);
+            for (Integer i : currentQueue){
+                totalPath.enqueue(i);
+            }
+
         }
         else {
             int temp = detours.dequeue();
-            totalPath.enqueue(bfs.pathTo(temp));
+//            totalPath.enqueue(bfs.pathTo(temp));
+            Iterable<Integer> currentQueue = bfs.pathTo(temp);
+            for (Integer i : currentQueue){
+                totalPath.enqueue(i);
+            }
             return getPath(temp, next);
 
         }
