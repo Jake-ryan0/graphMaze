@@ -74,8 +74,8 @@ public class DisplayMaze {
                         //TODO maybe make this look like rocks or water?
                         //TODO maybe make clear paths look like grass or road?
                         Square clicked = Square.getContaining(StdDraw.mouseX(), StdDraw.mouseY());
-                        //StdDraw.filledSquare(clicked.getX(), clicked.getY(), clicked.getHalfLength()/2);
-                        StdDraw.picture(clicked.getX(), clicked.getY(), lavaImage, clicked.getHalfLength() * 2, clicked.getHalfLength() * 2);
+                        if (clicked != null)
+                            StdDraw.picture(clicked.getX(), clicked.getY(), lavaImage, clicked.getHalfLength() * 2, clicked.getHalfLength() * 2);
                         StdDraw.show();
                     }
 
