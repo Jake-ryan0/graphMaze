@@ -9,15 +9,18 @@ public class Square {
     private static double halfLength;
     private int vertex;
     private static ArrayList<Square> squareList = new ArrayList<>();
+    private String grassImage = "https://preview.redd.it/icko709zs5c41.png?auto=webp&s=07fea1d0310e9ea5acf49f4903dd187a1ecd23a7";
+
 
     public Square(double x,double y, double halfLength){
         this.x = x;
         this.y = y;
         this.halfLength = halfLength;
-        StdDraw.square(x,y,halfLength);
+        StdDraw.picture(x,y,grassImage,1,1);
         vertex = squareList.size();
         squareList.add(this);
     }
+
 
     public void drawFilledSquare(){
         StdDraw.filledSquare(this.x, this.y, this.halfLength);
@@ -45,7 +48,7 @@ public class Square {
         return vertex;
     }
 
-    public static double getHalfLength() {
+    public double getHalfLength() {
         return halfLength;
     }
 

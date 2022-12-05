@@ -1,6 +1,8 @@
 
 import edu.princeton.cs.algs4.*;
 
+import edu.princeton.cs.algs4.*;
+
 
 //TODO figure out SymbolGraph
 //TODO generate txt file for SymbolGraph
@@ -100,6 +102,9 @@ public class GraphMaze {
         return totalPath;
     }
 
+
+
+
     /**
      * Add detour.
      *
@@ -107,6 +112,10 @@ public class GraphMaze {
      */
     public static void addDetour(Integer d){
         detours.enqueue(d);
+    }
+
+    public Queue<Integer> getTotalPath(){
+        return totalPath;
     }
 
 
